@@ -15,10 +15,16 @@
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^1.2.0",
         "postcss": "^8.4.31",
+        "sass-embedded": "^1.85.0",
         "tailwindcss": "^3.2.1",
         "typescript": "^5.6.3",
         "vite": "^6.0.11",
         "vue": "^3.4.0",
         "vue-tsc": "^2.0.24"
+    },
+    "dependencies": {
+        "flowbite": "^3.1.2",
+        "flowbite-vue": "^0.1.7",
+        "vue3-click-away": "^1.2.4"
     }
 }

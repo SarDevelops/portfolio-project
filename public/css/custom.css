@@ -1,0 +1,92 @@
+/* Drawer Css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+li button {
+    padding: 0;
+    border: none;
+    background: none;
+    color: red;
+    float: right;
+    margin-left: 10px;
+}
+.sidenav {
+    height: 100%;
+    z-index: 9;
+    width: 400px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 0 18px 5px;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: width 2s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: -23px;
+    right: 0;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.total-price {
+    background-color: #fff;
+    padding: 20px 5px;
+    border-top: 2px solid black;
+    position: sticky;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+.cart-body {
+    min-height: 745px;
+    overflow: visible;
+}
+.card-img-top {
+    width: 120px !important;
+}
+.total {
+    position: sticky;
+    bottom: 0;
+}
+.btn:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+
+.file-upload-form, .image-preview {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 20px;
+}
+img.preview {
+    width: 200px;
+    background-color: white;
+    border: 1px solid #DDD;
+    padding: 5px;
+}
