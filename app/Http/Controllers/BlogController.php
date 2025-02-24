@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Blog;
 use Carbon\Carbon;
@@ -16,7 +17,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Blogs/Index');
+        $blogs = Blog::latest()->get(); // Fetch all blogs ordered by latest
+
+        return Inertia::render('Blogs/Index', [
+            'blogs' => $blogs, // Pass blogs as a prop to the Vue component
+        ]);
 
     }
 
@@ -33,6 +38,7 @@ class BlogController extends Controller
      */
     public function store(CreateBlogRequest $request)
     {
+        // dd($request->all());
         return DB::transaction(function () use ($request) {
             $data = $request->validated();
 
@@ -52,11 +58,12 @@ class BlogController extends Controller
                 $blog->image = $path;
                 $blog->save(); // Save the image path
             }
+            return back()->with('success', 'Blog Successfully Created', ['name' => $blog->title]);
 
-            return response()->json([
-                'message' => 'Blog created successfully!',
-                'blog'    => $blog,
-            ], 201);
+            // return response()->json([
+            //     'message' => 'Blog created successfully!',
+            //     'blog'    => $blog,
+            // ], 201);
         });
     }
 
@@ -65,7 +72,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return response()->json($blog);
     }
 
     /**
@@ -81,6 +88,7 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
+        dd($request->all());
         return DB::transaction(function () use ($request, $blog) {
             $data = $request->validated();
 

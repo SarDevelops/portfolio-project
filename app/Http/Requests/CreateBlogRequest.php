@@ -22,7 +22,7 @@ class CreateBlogRequest extends FormRequest
     {
         return [
             'title'     => 'required|string|max:255',
-            'sub_title' => 'nullable|string|max:255',
+            'sub_title' => 'required|string|max:255',
             'slug'      => 'required|string|unique:blogs,slug|max:255',
             'content'   => 'required|string',
             'image'     => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
